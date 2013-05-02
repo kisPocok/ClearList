@@ -172,7 +172,7 @@
 				minClear:      5,
 				hoverDiff:     10,
 				listItems:     items,
-				autosave:      true,
+				autosave:      false,
 				autoload:      false
 			}
 			window.firstList  = clearList.init('#methods', params);
@@ -192,9 +192,7 @@
 				endHexColor:   'becff0',
 				listItems:     items,
 				hoverDiff:     -10,
-				storage:       window.localStorage,
-				autosave:      true,
-				autoload:      true
+				storage:       window.localStorage
 			};
 			window.secondList = clearList.init('#params',  params);
 			window.basicList  = clearList.init('#basic');
