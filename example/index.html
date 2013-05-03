@@ -136,11 +136,11 @@
 			<p>Code licensed under <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License v2.0</a>, documentation under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
 			<p>Inspired by <a href="http://www.realmacsoftware.com/clear/">Clear</a>.</p>
 			<ul class="footer-links">
-				<li><a href="https://github.com/kisPocok/clearlist">GitHub</a></li>
+				<li><a href="https://github.com/kisPocok/ClearList">GitHub</a></li>
 				<li class="muted">·</li>
-				<li><a href="https://github.com/kisPocok/clearlist/issues?state=open">Issues</a></li>
+				<li><a href="https://github.com/kisPocok/ClearList/issues?state=open">Issues</a></li>
 				<li class="muted">·</li>
-				<li><a href="https://github.com/kisPocok/clearlist/blob/master/CHANGELOG.md">Changelog</a></li>
+				<li><a href="https://github.com/kisPocok/ClearList/blob/master/CHANGELOG.md">Changelog</a></li>
 			</ul>
 		</div>
 	</footer>
@@ -148,7 +148,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.js"></script>
-	<script src="../src/clearList-1.0.min.js"></script>
+	<script src="../src/clearList.js"></script>
 	<script>
 		$(function() {
 			var items = [
@@ -172,10 +172,10 @@
 				minClear:      5,
 				hoverDiff:     10,
 				listItems:     items,
-				autosave:      false,
-				autoload:      false
+				autosave:      true,
+				autoload:      true
 			}
-			window.firstList  = clearList.init('#methods', params);
+			window.firstList = (new clearList()).init('#methods', params);
 
 			items = [
 				'Parameters',
@@ -192,10 +192,12 @@
 				endHexColor:   'becff0',
 				listItems:     items,
 				hoverDiff:     -10,
-				storage:       window.localStorage
+				storage:       window.localStorage,
+				autosave:      true,
+				autoload:      true
 			};
-			window.secondList = clearList.init('#params',  params);
-			window.basicList  = clearList.init('#basic');
+			window.secondList = (new clearList()).init('#params', params);
+			window.basicList  = (new clearList()).init('#basic');
 
 			window.prettyPrint && prettyPrint()
 		});

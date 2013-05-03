@@ -1,18 +1,16 @@
 /**
- * Clear List
+ * Clear List Project
  * @author David Schneidhoffer (@kisPocok)
- * @version 1.0
- * @params $ jQuery, Zepto.js with event handling or similar
+ * @version 1.1
+ * @see http://kispocok.github.io/ClearList/
  */
-var clearList = (function($) {
-	function isInt(n)  { return typeof n === 'number' && n % 1 == 0; }
-	function hexToR(h) { return parseInt((cutHex(h)).substring(0,2), 16); }
-	function hexToG(h) { return parseInt((cutHex(h)).substring(2,4), 16); }
-	function hexToB(h) { return parseInt((cutHex(h)).substring(4,6), 16); }
-	function cutHex(h) { return (h.charAt(0)=="#") ? h.substring(1,7):h; }
-	function rgb(r, g, b) { return ['rgb(', parseHex(r), ',', parseHex(g), ',', parseHex(b), ')'].join(''); }
-	function parseHex(h) { return Math.min(255, Math.max(0, parseInt(h))); }
 
+/**
+ * Clear List object
+ * @returns {object}
+ */
+var clearList = function()
+{
 	// Globals
 	var config, list, listSelector, startHex, endHex, minClear, hoverDiff, autosave, autoload, storage,
 		inited   = false,
@@ -262,11 +260,19 @@ var clearList = (function($) {
 						.css({backgroundColor: color});
 				});
 		});
-	}
+	};
+
+	function isInt(n)  { return typeof n === 'number' && n % 1 == 0; }
+	function hexToR(h) { return parseInt((cutHex(h)).substring(0,2), 16); }
+	function hexToG(h) { return parseInt((cutHex(h)).substring(2,4), 16); }
+	function hexToB(h) { return parseInt((cutHex(h)).substring(4,6), 16); }
+	function cutHex(h) { return (h.charAt(0)=="#") ? h.substring(1,7):h; }
+	function rgb(r, g, b) { return ['rgb(', parseHex(r), ',', parseHex(g), ',', parseHex(b), ')'].join(''); }
+	function parseHex(h) { return Math.min(255, Math.max(0, parseInt(h))); }
 
 	return {
 		author:   '@kisPocok',           // That is my twitter name. Don't remove please.
-		version:  '1.0',                 // Version number
+		version:  '1.1',                 // Version number
 		init:     init,                  // Constructor
 		add:      addItemToList,         // Add item to list
 		remove:   removeItemFromList,    // Remove selected item
@@ -281,4 +287,5 @@ var clearList = (function($) {
 		del:      removeListFromStorage, // Remove list from localStorage
 		autosave: setAutoSaveStatusTo    // Set autosave ON/OFF. Boolean parameter required.
 	}
-})(jQuery);
+};
+window.clearList = clearList;
