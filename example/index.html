@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>clearList</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+	<link href="../src/clearList.min.css" rel="stylesheet" media="screen">
+	<link href="http://twitter.github.io/bootstrap/assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+	<link href="css/example.css" rel="stylesheet" media="screen">
+</head>
+<body>
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<div class="nav-collapse collapse">
+					<ul class="nav">
+						<li><a href="index.html">Home</a></li>
+						<li><a href="#example">Example</a></li>
+						<li><a href="#getting-started">Getting Started</a></li>
+						<li><a href="https://github.com/kisPocok">GitHub</a></li>
+						<li><a href="https://twitter.com/kisPocok">@kisPocok</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<header class="jumbotron subhead" id="overview">
+		<div class="container">
+			<h1>Clear List</h1>
+			<p class="lead">Simple way to create TODO app for web</p>
+		</div>
+	</header>
+
+	<div class="container need-more-space">
+		<section id="example">
+			<div class="page-header">
+				<h1>Example</h1>
+			</div>
+			<div class="row-fluid">
+				<div class="span5">
+					<p class="lead">Javascript API</p>
+				</div>
+				<div class="span7">
+					<p class="lead">Parameters</p>
+				</div>
+			</div>
+			<div class="row-fluid">
+				<div class="span5">
+					<ul id="methods" class="clearList"></ul>
+				</div>
+				<div class="span7">
+					<ul id="params" class="clearList"></ul>
+					<p class="lead">Build list with HTML</p>
+					<ul id="basic" class="clearList">
+						<li>Item creation,</li>
+						<li>works with HTML too!</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+
+		<section id="getting-started">
+			<div class="page-header">
+				<h1>Getting Started</h1>
+			</div>
+			<p class="lead">You need a single CSS file, jQuery and Clear List JS.</p>
+			<pre class="prettyprint linenums">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;title&gt;Clear List: Getting Started&lt;/title&gt;
+  &lt;link href="css/clearList.min.css" rel="stylesheet" media="screen"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;script src="js/jquery.min.js"&gt;&lt;/script&gt;
+  &lt;script src="js/clearList-1.0.min.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+			<p class="lead">This is the basic structure:</p>
+			<pre class="prettyprint linenums">
+&lt;ul id="myList" class="clearList"&gt;
+  &lt;li&gt;First item&lt;/li&gt;
+  &lt;li&gt;Second item&lt;/li&gt;
+  &lt;li&gt;Third item&lt;/li&gt;
+&lt;/ul&gt;</pre>
+      <p class="lead">This is the basic structure:</p>
+      <pre class="prettyprint linenums">
+&lt;script&gt;
+  $(function() {
+    window.myList = clearList.init('#myList');
+  });
+&lt;/script&gt;</pre>
+			<p class="lead">Changing the default values:</p>
+			<pre class="prettyprint linenums">
+&lt;script&gt;
+  $(function() {
+    var params = {
+      startHexColor:"565656"
+      // Go on...
+    };
+    window.myList = clearList.init('#myList', params);
+  });
+&lt;/script&gt;</pre>
+			<p class="lead">All together</p>
+			<pre class="prettyprint linenums">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;title&gt;Clear List: Getting Started&lt;/title&gt;
+  &lt;link href="css/clearList.min.css" rel="stylesheet" media="screen"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;ul id="myList" class="clearList"&gt;
+    &lt;li&gt;First item&lt;/li&gt;
+    &lt;li&gt;Second item&lt;/li&gt;
+    &lt;li&gt;Third item&lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;script src="js/jquery.min.js"&gt;&lt;/script&gt;
+  &lt;script src="js/clearList-1.0.min.js"&gt;&lt;/script&gt;
+  &lt;script&gt;
+  $(function() {
+    window.myList = clearList.init('#myList');
+  });
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+			<p class="lead">Fin. Vége.</p>
+		</section>
+	</div>
+
+	<footer class="footer">
+		<div class="container">
+			<p>Built with all the love in the world by <a href="http://twitter.com/kisPocok" target="_blank">@kisPocok</a>. ❤</p>
+			<p>Code licensed under <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License v2.0</a>, documentation under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
+			<p>Inspired by <a href="http://www.realmacsoftware.com/clear/">Clear</a>.</p>
+			<ul class="footer-links">
+				<li><a href="https://github.com/kisPocok/ClearList">GitHub</a></li>
+				<li class="muted">·</li>
+				<li><a href="https://github.com/kisPocok/ClearList/issues?state=open">Issues</a></li>
+				<li class="muted">·</li>
+				<li><a href="https://github.com/kisPocok/ClearList/blob/master/CHANGELOG.md">Changelog</a></li>
+			</ul>
+		</div>
+	</footer>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.js"></script>
+	<script src="../src/clearList.js"></script>
+	<script>
+		$(function() {
+			var items = [
+				'var c = clearList.init("#List", params)',
+				'c.add(string itemTitle) - Add new item',
+				'c.remove(int index) - Remove by index',
+				'c.clean() - Drop finished items',
+				'c.clear() - Remove all items',
+				'c.finish([int index]) - Mark all as done',
+				'c.reset([int index]) - Inverse of finish()',
+				'c.toggle([int index]) - Change item(s) status',
+				'c.restart() - Drop current list and reload list from config',
+				'c.save() - Save the actual session',
+				'c.load() - Load saved session',
+				'c.del() - Remove saved session',
+				'c.autosave() - Enable/Disable',
+			];
+			var params = {
+				startHexColor: 'e3252b',
+				endHexColor:   'eeba37',
+				minClear:      5,
+				hoverDiff:     10,
+				listItems:     items,
+				autosave:      true,
+				autoload:      true
+			}
+			window.firstList = (new clearList()).init('#methods', params);
+
+			items = [
+				'Parameters',
+				'<b>startHexColor</b>: the first tile color ["e3252b"]',
+				'<b>endHexColor</b>: the last tile color ["eeba37"]',
+				'<b>minClear</b>: full color palette need least X tile [5]',
+				'<b>hoverDiff</b>: tiles background color diff [+5%]',
+				'<b>listItems</b>: generate item list from array',
+				'<b>autosave</b>: save list automatically',
+				'<b>autoload</b>: continue saved session at init',
+			];
+			params = {
+				startHexColor: '2d6ef1',
+				endHexColor:   'becff0',
+				listItems:     items,
+				hoverDiff:     -10,
+				storage:       window.localStorage,
+				autosave:      true,
+				autoload:      true
+			};
+			window.secondList = (new clearList()).init('#params', params);
+			window.basicList  = (new clearList()).init('#basic');
+
+			window.prettyPrint && prettyPrint()
+		});
+	</script>
+</body>
+</html>
