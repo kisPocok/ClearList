@@ -36,9 +36,12 @@ var clearList = (function($) {
 		storage    = config.storage       || window.localStorage; // localStorage or similar
 		cacheKey  += listContainerSelector;
 
+		var loaded = false;
 		if (autoload) {
-			loadListFromStorage();
-		} else if (config.listItems) {
+			loaded = loadListFromStorage();
+		}
+
+		if (!loaded && config.listItems) {
 			addItemsToList(config.listItems);
 		}
 
@@ -183,6 +186,7 @@ var clearList = (function($) {
 	{
 		if (storage.length < 1 || !storage.hasOwnProperty(cacheKey) || storage.getItem(cacheKey) == '0') {
 			$(listSelector).trigger('LIST_LOAD_FAILED');
+			return false;
 		}
 
 		removeAllItem();
@@ -193,6 +197,7 @@ var clearList = (function($) {
 		});
 
 		$(listSelector).trigger('LIST_LOADED');
+		return true;
 	};
 
 	var removeListFromStorage = function()
