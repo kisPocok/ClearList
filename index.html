@@ -4,7 +4,7 @@
 	<title>Clear List on GitHub</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-	<link href="css/clearList.min.css" rel="stylesheet" media="screen">
+	<link href="src/clearList.min.css" rel="stylesheet" media="screen">
 	<link href="css/example.css" rel="stylesheet" media="screen">
 	<meta name="viewport" content="width=device-width">
 	<meta name="robots" content="index, follow" />
@@ -96,7 +96,7 @@
       <pre class="prettyprint linenums">
 &lt;script&gt;
   $(function() {
-    window.myList = clearList.init('#myList');
+    window.myList = (new clearList).init('#myList');
   });
 &lt;/script&gt;</pre>
 			<p class="lead">Changing the default values:</p>
@@ -107,7 +107,7 @@
       startHexColor:"565656"
       // Go on...
     };
-    window.myList = clearList.init('#myList', params);
+    window.myList = (new clearList).init('#myList', params);
   });
 &lt;/script&gt;</pre>
 			<p class="lead">All together</p>
@@ -129,7 +129,7 @@
   &lt;script src="js/clearList-1.0.min.js"&gt;&lt;/script&gt;
   &lt;script&gt;
   $(function() {
-    window.myList = clearList.init('#myList');
+    window.myList = (new clearList).init('#myList');
   });
   &lt;/script&gt;
 &lt;/body&gt;
@@ -157,11 +157,11 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.js"></script>
-	<script src="js/clearList-1.0.min.js"></script>
+	<script src="src/clearList.min.js"></script>
 	<script>
 		$(function() {
 			var items = [
-				'var c = clearList.init("#List", params)',
+				'c = (new clearList).init("#List", params)',
 				'c.add(string itemTitle) - Add new item',
 				'c.remove(int index) - Remove by index',
 				'c.clean() - Drop finished items',
@@ -184,7 +184,7 @@
 				autosave:      false,
 				autoload:      false
 			}
-			window.firstList  = clearList.init('#methods', params);
+			window.firstList = (new clearList()).init('#methods', params);
 
 			items = [
 				'Parameters',
@@ -201,10 +201,12 @@
 				endHexColor:   'becff0',
 				listItems:     items,
 				hoverDiff:     -10,
-				storage:       window.localStorage
+				storage:       window.localStorage,
+				autosave:      false,
+				autoload:      false
 			};
-			window.secondList = clearList.init('#params',  params);
-			window.basicList  = clearList.init('#basic');
+			window.secondList = (new clearList()).init('#params', params);
+			window.basicList  = (new clearList()).init('#basic');
 
 			window.prettyPrint && prettyPrint()
 		});
