@@ -74,7 +74,7 @@
 &lt;/head&gt;
 &lt;body&gt;
   &lt;script src="js/jquery.min.js"&gt;&lt;/script&gt;
-  &lt;script src="js/clearList-1.0.min.js"&gt;&lt;/script&gt;
+  &lt;script src="js/clearList.min.js"&gt;&lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;</pre>
 			<p class="lead">This is the basic structure:</p>
@@ -88,7 +88,7 @@
       <pre class="prettyprint linenums">
 &lt;script&gt;
   $(function() {
-    window.myList = clearList.init('#myList');
+    window.myList = (new clearList()).init('#myList');
   });
 &lt;/script&gt;</pre>
 			<p class="lead">Changing the default values:</p>
@@ -99,7 +99,7 @@
       startHexColor:"565656"
       // Go on...
     };
-    window.myList = clearList.init('#myList', params);
+    window.myList = (new clearList()).init('#myList', params);
   });
 &lt;/script&gt;</pre>
 			<p class="lead">All together</p>
@@ -118,10 +118,10 @@
   &lt;/ul&gt;
 
   &lt;script src="js/jquery.min.js"&gt;&lt;/script&gt;
-  &lt;script src="js/clearList-1.0.min.js"&gt;&lt;/script&gt;
+  &lt;script src="js/clearList.min.js"&gt;&lt;/script&gt;
   &lt;script&gt;
   $(function() {
-    window.myList = clearList.init('#myList');
+    window.myList = (new clearList()).init('#myList');
   });
   &lt;/script&gt;
 &lt;/body&gt;
@@ -152,7 +152,7 @@
 	<script>
 		$(function() {
 			var items = [
-				'var c = clearList.init("#List", params)',
+				'c = (new clearList()).init("#List", params)',
 				'c.add(string itemTitle) - Add new item',
 				'c.remove(int index) - Remove by index',
 				'c.clean() - Drop finished items',
@@ -172,8 +172,8 @@
 				minClear:      5,
 				hoverDiff:     10,
 				listItems:     items,
-				autosave:      true,
-				autoload:      true
+				autosave:      false,
+				autoload:      false
 			}
 			window.firstList = (new clearList()).init('#methods', params);
 
@@ -193,8 +193,8 @@
 				listItems:     items,
 				hoverDiff:     -10,
 				storage:       window.localStorage,
-				autosave:      true,
-				autoload:      true
+				autosave:      false,
+				autoload:      false
 			};
 			window.secondList = (new clearList()).init('#params', params);
 			window.basicList  = (new clearList()).init('#basic');
